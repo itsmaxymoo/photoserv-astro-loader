@@ -13,7 +13,7 @@ export class PhotoservAPI {
 
     private async get<T = any>(path: string): Promise<T> {
         return this.limit(async () => {
-            const url = `${this.apiUrl}${path}`;
+            const url = path.startsWith("http") ? path : `${this.apiUrl}${path}`;
             const res = await fetch(url, {
                 headers: {
                     Authorization: `Bearer ${this.apiKey}`,
@@ -32,8 +32,21 @@ export class PhotoservAPI {
         });
     }
 
+    private async getPlural<T = any>(path: string): Promise<T[]> {
+        const results: T[] = [];
+        let next: string | null = path;
+
+        while (next !== null) {
+            const page: { next: string | null; results: T[] } = await this.get(next);
+            results.push(...page.results);
+            next = page.next;
+        }
+
+        return results;
+    }
+
     public async getPhotoSummaries(): Promise<PhotoSummary[]> {
-        return this.get("/photos?include_sizes=true");
+        return this.getPlural("/photos?include_sizes=true");
     }
 
     public async getPhoto(uuid: string): Promise<Photo> {
@@ -53,7 +66,7 @@ export class PhotoservAPI {
     }
 
     public async getAlbumSummaries(): Promise<AlbumSummary[]> {
-        return this.get("/albums");
+        return this.getPlural("/albums");
     }
 
     public async getAlbum(uuid: string, recursive: boolean = false): Promise<Album> {
@@ -69,7 +82,7 @@ export class PhotoservAPI {
     }
 
     public async getTagSummaries(): Promise<TagSummary[]> {
-        return this.get("/tags");
+        return this.getPlural("/tags");
     }
 
     public async getTag(uuid: string): Promise<Tag> {

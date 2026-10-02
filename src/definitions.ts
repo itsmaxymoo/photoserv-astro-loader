@@ -2,11 +2,13 @@ import { z } from "astro:content";
 
 
 export const PhotoSizeSchema = z.object({
-    uuid: z.string(),
-    slug: z.string(),
-    height: z.number(),
-    width: z.number(),
-    md5: z.string(),
+    size: z.object({
+        uuid: z.string(),
+        slug: z.string(),
+    }),
+    height: z.number().nullable(),
+    width: z.number().nullable(),
+    md5: z.string().nullable(),
 });
 
 export type PhotoSize = z.infer<typeof PhotoSizeSchema>;
@@ -15,7 +17,7 @@ export const PhotoSummarySchema = z.object({
     uuid: z.string(),
     title: z.string(),
     slug: z.string(),
-    publish_date: z.string().datetime({ offset: true }),
+    canonical_publish_date: z.string().datetime({ offset: true }),
     sizes: z.array(PhotoSizeSchema),
 });
 export type PhotoSummary = z.infer<typeof PhotoSummarySchema>;
@@ -39,7 +41,7 @@ export const PhotoSchema = z.object({
     slug: z.string(),
     title: z.string(),
     description: z.string(),
-    publish_date: z.string().datetime({ offset: true }),
+    canonical_publish_date: z.string().datetime({ offset: true }),
     customAttributes: z.record(z.string(), z.string()).optional(),
 
     metadata: z.object({

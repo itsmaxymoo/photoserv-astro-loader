@@ -47,7 +47,7 @@ export function photosLoader(options: {
                     })();
 
                     // If file exists and MD5 matches, skip download
-                    if (photo.sizes.find(s => s.slug === size && s.md5 === md5)) {
+                    if (photo.sizes.find(s => s.size.slug === size && s.md5 === md5)) {
                         continue;
                     }
 

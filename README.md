@@ -4,6 +4,12 @@ Allows you to seamlessly use Photoserv with your Astro site.
 
 ## Usage
 
+### Photoserv
+
+Create an API Key with all `view_*` permissions in 'media' (channel permissions unnecessary)
+
+### Astro Project
+
 `npm i @photoserv/astro-loader`
 
 In your Astro `content.config.ts`:
@@ -70,7 +76,7 @@ export interface Props {
 }
 
 const { photo, size = PHOTOSERV_DISPLAY_SIZE, class: className = "max-h-[90vh]", ...rest } = Astro.props as Props;
-const { height, width } = photo.sizes.find((_size) => _size.slug == size) || {};
+const { height, width } = photo.sizes.find((_size) => _size.size.slug == size) || {};
 if (height && width) {
     rest.height = height;
     rest.width = width;
@@ -96,5 +102,6 @@ if (height && width) {
 | Loader Version (this) | Maximum Photoserv Version |
 | --- | --- |
 | Current | Current |
+| 1.0.0 | 1.X.X |
 | 0.1.x | 0.9.x |
 | 0.0.x | 0.8.0 |

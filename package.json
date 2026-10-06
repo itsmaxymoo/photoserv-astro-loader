@@ -1,6 +1,6 @@
 {
   "name": "@itsmaxymoo/photoserv-astro-loader",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Astro.js loader for Photoserv",
   "main": "dist/index.js",

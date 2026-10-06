@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.0.0](https://github.com/itsmaxymoo/photoserv-astro-loader/compare/photoserv-astro-loader-0.2.0...photoserv-astro-loader-1.0.0) (2026-10-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* PS1.0 Support
+
+### Features
+
+* Implement pLimit to avoid DOSing large Photoserv instances ([96aa2a5](https://github.com/itsmaxymoo/photoserv-astro-loader/commit/96aa2a58d97bdd33419afbb3d746d295fec1a2db))
+* Parity with Photoserv 0.9.0 ([04f0e1c](https://github.com/itsmaxymoo/photoserv-astro-loader/commit/04f0e1cdddf2e8923400b57e1725e623a28ebc4b))
+* PS1.0 Support ([f912b9d](https://github.com/itsmaxymoo/photoserv-astro-loader/commit/f912b9d8282296d1bd44bd0e628ebd3d31d3728a))
+
+
+### Bug Fixes
+
+* add --provenance to deployment workflow ([9e2ced2](https://github.com/itsmaxymoo/photoserv-astro-loader/commit/9e2ced2e2c029aee2458c2b304b0ccb52125a29a))
+* Enable automatic deployment ([b253e80](https://github.com/itsmaxymoo/photoserv-astro-loader/commit/b253e80d07a74e09585431740b2893647978c798))
+* Fix build system ([b155809](https://github.com/itsmaxymoo/photoserv-astro-loader/commit/b155809347712ac7551a7162cd85cd9bb7b15f1c))
+* Grant permissions to the deployment workflow ([0fb9e7f](https://github.com/itsmaxymoo/photoserv-astro-loader/commit/0fb9e7fb1a72b43c7444f52a5c63c921fdc16add))
+* Remove unused npm script ([26aeb09](https://github.com/itsmaxymoo/photoserv-astro-loader/commit/26aeb09780fa9f9982a94cb2338dc1b297ff0728))
+
 ## [0.2.0](https://github.com/photoserv/astro-loader/compare/astro-loader-0.1.0...astro-loader-0.2.0) (2026-07-11)
 
 

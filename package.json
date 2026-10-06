@@ -1,5 +1,5 @@
 {
-  "name": "@photoserv/astro-loader",
+  "name": "@itsmaxymoo/photoserv-astro-loader",
   "version": "0.2.0",
   "type": "module",
   "description": "Astro.js loader for Photoserv",
@@ -53,7 +53,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/photoserv/astro-loader"
+    "url": "https://github.com/itsmaxymoo/photoserv-astro-loader"
   },
   "dependencies": {
     "p-limit": "^7.3.0"
